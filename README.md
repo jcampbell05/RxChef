@@ -18,9 +18,9 @@ An __Observable__ is an event that can be reacted to (Hence why we call it react
 
 A __Subscriber__ is an interested party to that Observable, for the examples above our Robo Chef we would be the interested party. You could also describe the customer as being a __Subscriber__ since they are interested in knowing when their meal is ready.
 
-So that really is the basics of Reactive Programming and hopefully you can see that it isn't all that complicated. In fact you may already be using traditional frameworks who allow you to observe things. So what's different?
+So that really is the basics of Reactive Programming and hopefully you can see that it isn't all that complicated. In fact you may already be using traditional frameworks who allow you to observe things. So let's explore why you would want to start programming reactively.
 
-## From Steps to Streams
+## From Steps
 
 First we're going to write the first steps for preparing a plate of chips. To make things easier lets write an outline of the steps needed to make one:
 
@@ -172,31 +172,46 @@ Most engineers are aware of the negative impact of "spagetti code", having neat 
 
 Lets try re-building our Robo Chef again but this time using reactive techniques. I'm also going to throw in a few requirements later on to really show some of the power of using this style of programming.
 
-Before we do that though, I need to introduce a key concept which links __Observables__ to __Subscribers__, A concept known as streams.
 
-## Streams
+## To Streams
 
-Traditional observables allow you to monitor a value over time, such as the number of orders to placed. Traditional Observables pass or *emit* these to a callback and can be plotted on a timeline like so:
-
-1--2--3--4--5-->
-
-This diagram is known as a RxMarble Diagram and it represents a timeline of values an observable emits. This timeline is of values is known as a stream. ReactiveX allows you to compose streams to create a pipeline which describes what your application wants to achieve.
-
-Instead of passing each value to a callback, in ReactiveX __Observables__ generate streams and __Subscribers__ consume them.
-
-This all seems very abstract so lets start building our new firmware to help cerment this in our minds.
-
-Since our RoboChef is interested in any new-orders there may be this time we are going to subscribe to an __Observable__ for those new orders instead of creating one ourselves.
+Lets start converting over to ReactiveX since our Robo Chef is interested in new-orders we are going to subscribe to an __Observable__ for those new orders instead of creating one ourselves.
 
 ```
 - When we have a new order
-new_orders.subscribeNext {
-  - Make it
-}
+new_orders.subscribeNext({
+    - Heat up the oven to 220°
+    oven.setTemperature(220)
+
+    - Check we have chips
+    if store.has_chips {
+
+      - If we do, place 200 grams of chips onto a tray.
+      chips = new Chips(grams: 220)
+      tray.place(chips)
+
+      - Place the tray in the oven.
+      oven.place(tray)
+
+      - When the chips turn golden
+      observe(chips.are_golden, callback: {
+
+        - Take the tray out of the oven.
+        oven.remove(tray)
+
+        - Wait 5 minutes for the chips to cool down.
+        wait(minutes: 5)
+
+        - Serve them up.
+        serve(chips.serve)
+      })
+    }
+    else
+    {
+      - If we don't - inform the waiter
+      order.waiter.inform("I don't have any chips for that order")
+    }
+})
 ```
 
-Above we subscribe for when there is a new order from the new order stream. If we imagine this stream as a timeline again:
-
-o1--o2--o3-->
-
-Our block of code will be ran for "o1", "o2" and then "03". If this feels like looping though an Array then thats because it is.
+In fact this looks very similar to what we had before, the callback for `subscribeNext` will be called whenever a new order is made.
