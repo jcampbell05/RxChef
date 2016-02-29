@@ -1,6 +1,6 @@
 # RxChef
 
-In this tutorial we will be learning the concepts of ReactiveX and Reactive Programming whilst running the kitchen for a hugely successful chain vintage 1950s diners. Your job is to engineer the firmware for the Robo Chefs ordered for these restaurants from technology conglomerate RxChef. By the end you'll be a fully certified RxChef Mechanic, ready to start a lucrative career in Reactive Culinary.
+In this tutorial we will be learning the concepts of ReactiveX and Reactive Programming, whilst acting as chief mechanic for all of the Robo Chefs for a chain of vintage 1950s restaurants. Your job is to engineer the firmware for the Robo Chefs ordered for these restaurants from technology conglomerate RxChef. By the end you'll be a fully certified RxChef Mechanic, ready to start a lucrative career in Reactive Culinary.
 
 More seriously though, this tutorial will lay down the foundation to help you enter the world of Reactive Programming. So without further ado.
 
@@ -58,7 +58,9 @@ oven.remove(tray)
 wait(minutes: 5)
 
 - Serve them up.
-serve(chips)
+serve(chips.serve)
 ```
 
-Whilst simple and easy to understand our RoboChef will only prepare a plate of chips before remaining idle. We want our RoboChef to prepare it each time someone places an order. So lets have a look at how we would do this.
+Whilst simple and easy to understand our Robo Chef will turn on, prepare a plate of chips before remaining idle. We want our Robo Chef to prepare it each time someone places an order and only when they place an order. So lets have a look at how we would do this.
+
+In the past we may have had a loop who's job it was to poll if there were any new orders. Luckily in an era of ever growing numbers of frameworks we don't have to do this anymore. Most of these frameworks have a concept similar to observables, so let's use this.
