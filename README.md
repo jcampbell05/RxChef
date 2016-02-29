@@ -14,7 +14,7 @@ There are two core components Observables and Subscribers.
 An __Observable__ is something that can be reacted to (Hence why we call it reactive programming); this could be an event or a property. Some examples of observables in the kitchen could be:
 
 - Getting a new order.
-- How many buns are there left for the burgers?
+- How many bags of chips are there left?
 
 A __Subscriber__ is an interested party to that Observable, for the examples above our Robo Chef we would be the interested party. You could also describe the customer as being a __Subscriber__ since they are interested in knowing when their meal is ready.
 
