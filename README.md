@@ -11,14 +11,14 @@ using streams of events. Sound technical? Well lets break it down.
 
 There are two core components Observables and Subscribers.
 
-An __Observable__ is something that can be reacted to (Hence why we call it reactive programming); this could be an event or a property. Some examples of observables in the kitchen could be:
+An __Observable__ is an event that can be reacted to (Hence why we call it reactive programming); Some examples of observables in the kitchen could be:
 
 - Getting a new order.
-- How many bags of chips are there left?
+- The amount of chips in the store room has changed.
 
 A __Subscriber__ is an interested party to that Observable, for the examples above our Robo Chef we would be the interested party. You could also describe the customer as being a __Subscriber__ since they are interested in knowing when their meal is ready.
 
-So that really is the basics of Reactive Programming and hopefully you can see that it isn't all that complicated. In fact if you've been programming for a while already, you may have been using traditional frameworks who already allow you to observe things. So what's different?
+So that really is the basics of Reactive Programming and hopefully you can see that it isn't all that complicated. In fact you may already be using traditional frameworks who allow you to observe things. So what's different?
 
 ## From Steps to Streams
 
