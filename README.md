@@ -174,6 +174,8 @@ Lets try re-building our Robo Chef again but this time using reactive techniques
 
 Before we do that though, I need to introduce a key concept which links __Observables__ to __Subscribers__, A concept known as streams.
 
+## Streams
+
 Traditional observables allow you to monitor a value over time, such as the number of orders to placed. Traditional Observables pass or *emit* these to a callback and can be plotted on a timeline like so:
 
 1--2--3--4--5-->
@@ -197,4 +199,4 @@ Above we subscribe for when there is a new order from the new order stream. If w
 
 o1--o2--o3-->
 
-Our block of code will be ran for "o1", "o2" and then "03". If this feels like looping though an Array then thats because it is. 
+Our block of code will be ran for "o1", "o2" and then "03". If this feels like looping though an Array then thats because it is.
