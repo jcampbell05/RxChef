@@ -63,7 +63,7 @@ serve(chips)
 
 Whilst simple and easy to understand our Robo Chef will turn on, prepare a plate of chips before remaining idle. We want our Robo Chef to prepare it each time someone places an order and only when they place an order. So lets have a look at how we would do this.
 
-In the past we may have had a loop who's job it was to poll if there were any new orders. Luckily in an era of ever growing numbers of frameworks we don't have to do this anymore. Most of these frameworks have a concept similar to observables, so let's use this.
+In the past we may have had a loop who's job it was to poll if there were any new orders. Luckily in an era of ever growing numbers of frameworks we don't have to do this anymore. Most of these frameworks have a concept similar to observables, so let's use that:
 
 ```
 - When we have a new order
@@ -169,3 +169,8 @@ observe(orders.count, callback: {
 
 })
 ```
+What happened? We used to have such beautiful code and now look at it! Whats started as a list of step-by-step imperative instructions has quickly turned into tangled-mess that makes it hard to grasp the flow of the program without having to re-read it a few times. These steps may not execute at all and not even in the same order in which we read them.
+
+Most engineers are aware of the negative impact of "spagetti code", having neat organised code is a goal of hopefully all professional software companies. Unfortunatly a lot of the best companies are still battling with the day to day struggles of "spagetti flow" - the inability to predict the flow of their program based on their code due to tangled up state.
+
+Lets try re-building our Robo Chef again but this time using reactive techniques. I'm also going to throw in a few requirements later on to really show some of the power of using this style of programming.
