@@ -132,13 +132,13 @@ When this happens the Robo Chef needs to inform the waiter who brought him the o
 - When we have a new order
 observe(orders.count, callback: {
 
-  - Heat up the oven to 220°
-  oven.setTemperature(220)
-
   - Check we have chips
   if store.has_chips {
 
-    - If we do, place 200 grams of chips onto a tray.
+    - If we do, Heat up the oven to 220°
+    oven.setTemperature(220)
+
+    - Place 200 grams of chips onto a tray.
     chips = new Chips(grams: 220)
     tray.place(chips)
 
@@ -180,13 +180,14 @@ Lets start converting over to ReactiveX since our Robo Chef is interested in new
 ```
 - When we have a new order
 new_orders.subscribeNext({
-    - Heat up the oven to 220°
-    oven.setTemperature(220)
 
     - Check we have chips
     if store.has_chips {
 
-      - If we do, place 200 grams of chips onto a tray.
+      - If we do, Heat up the oven to 220°
+      oven.setTemperature(220)
+
+      - Place 200 grams of chips onto a tray.
       chips = new Chips(grams: 220)
       tray.place(chips)
 
@@ -221,13 +222,14 @@ Lets do the same for monitoring the color of the chips.
 ```
 - When we have a new order
 new_orders.subscribeNext({
-    - Heat up the oven to 220°
-    oven.setTemperature(220)
 
     - Check we have chips
     if store.has_chips {
 
-      - If we do, place 200 grams of chips onto a tray.
+      - If we do, Heat up the oven to 220°
+      oven.setTemperature(220)
+
+      - Place 200 grams of chips onto a tray.
       chips = new Chips(grams: 220)
       tray.place(chips)
 
@@ -255,4 +257,4 @@ new_orders.subscribeNext({
 })
 ```
 
-Like before the steps in the callback for `subscribeNext` is called when the chips turn golden.
+Like before the steps in the callback for `subscribeNext` is called when the chips turn golden. So far it doesn't look like there is much different to ReactiveX but now things start to get interesting.
