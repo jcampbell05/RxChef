@@ -31,5 +31,6 @@ This is where things can get a bit confusing so lets start with a concrete examp
 - Place 200 grams of chips onto a tray.
 - Place the tray in the oven.
 - After 20 minutes take the tray out of the oven.
-- Wait 5 minutes for the chips to cool down and serve them up.
+- Wait 5 minutes for the chips to cool down.
+- Serve them up.
 ```
