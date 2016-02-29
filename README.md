@@ -214,4 +214,45 @@ new_orders.subscribeNext({
 })
 ```
 
-In fact this looks very similar to what we had before, the callback for `subscribeNext` will be called whenever a new order is made.
+Right now this looks very similar to what we had before, the callback for `subscribeNext` will be called whenever a new order is made.
+
+Lets do the same for monitoring the color of the chips.
+
+```
+- When we have a new order
+new_orders.subscribeNext({
+    - Heat up the oven to 220°
+    oven.setTemperature(220)
+
+    - Check we have chips
+    if store.has_chips {
+
+      - If we do, place 200 grams of chips onto a tray.
+      chips = new Chips(grams: 220)
+      tray.place(chips)
+
+      - Place the tray in the oven.
+      oven.place(tray)
+
+      - When the chips turn golden
+      chips.are_golden.subscribeNext({
+
+        - Take the tray out of the oven.
+        oven.remove(tray)
+
+        - Wait 5 minutes for the chips to cool down.
+        wait(minutes: 5)
+
+        - Serve them up.
+        serve(chips.serve)
+      })
+    }
+    else
+    {
+      - If we don't - inform the waiter
+      order.waiter.inform("I don't have any chips for that order")
+    }
+})
+```
+
+Like before the steps in the callback for `subscribeNext` is called when the chips turn golden.
