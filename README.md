@@ -170,7 +170,7 @@ observe(orders.count, callback: {
 
 })
 ```
-What happened? We used to have such beautiful code and now look at it! Whats started as a list of step-by-step imperative instructions has quickly turned into tangled-mess that makes it hard to grasp the flow of the program without having to re-read it a few times. These steps may not execute at all and not even in the same order in which we read them.
+What happened? We used to have such beautiful code and now look at it! Whats started as a list of step-by-step imperative instructions has quickly turned into tangled-mess that makes it hard to grasp the flow of the program without having to re-read it a few times. These steps may not execute at all, right away or even in the same order in which we read them.
 
 Most engineers are aware of the negative impact of "spagetti code", having neat organised code is a goal of hopefully all professional software companies. Unfortunately a lot of the best companies are still battling with the day to day struggles of "spagetti flow" - the inability to predict the flow of their program based on their code due to tangled up state.
 
