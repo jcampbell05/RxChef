@@ -44,7 +44,7 @@ On the face of it, converting these instructions to traditional step-by-step imp
 oven.setTemperature(220)
 
 - Place 200 grams of chips onto a tray.
-chips = new Chips(grams: 220)
+chips = Chips(grams: 220)
 tray.place(chips)
 
 - Place the tray in the oven.
@@ -58,7 +58,7 @@ oven.remove(tray)
 wait(minutes: 5)
 
 - Serve them up.
-serve(chips.serve)
+serve(chips)
 ```
 
 Whilst simple and easy to understand our Robo Chef will turn on, prepare a plate of chips before remaining idle. We want our Robo Chef to prepare it each time someone places an order and only when they place an order. So lets have a look at how we would do this.
@@ -67,7 +67,7 @@ In the past we may have had a loop who's job it was to poll if there were any ne
 
 ```
 - When we have a new order
-observe(NewOrder, {
+observe(orders.count, callback: {
 
   - Heat up the oven to 220°
   oven.setTemperature(220)
@@ -95,3 +95,33 @@ observe(NewOrder, {
 As you can see we simply wrapped up the original steps in a callback which will be ran every time a new order is placed. Still fairly familiar, still pretty simple. What could go wrong?
 
 Well it turns out a lot, customers have been complaining that their chips are undercooked. On further inspection it seems that taking the chips out after 20 minutes is the problem. When a real person cooks, they judge if it's ready or not based on the color. So we need to upgrade our Robo Chef to do the same.
+
+That's still pretty easy right? well let's give it a go:
+
+```
+- When we have a new order
+observe(orders.count, callback: {
+
+  - Heat up the oven to 220°
+  oven.setTemperature(220)
+
+  - Place 200 grams of chips onto a tray.
+  chips = new Chips(grams: 220)
+  tray.place(chips)
+
+  - Place the tray in the oven.
+  oven.place(tray)
+
+  observe(chips.are_brown, callback: {
+
+    - After 20 minutes take the tray out of the oven.
+    oven.remove(tray)
+
+    - Wait 5 minutes for the chips to cool down.
+    wait(minutes: 5)
+
+    - Serve them up.
+    serve(chips.serve)
+  })
+})
+```
