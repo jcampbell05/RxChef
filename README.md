@@ -24,4 +24,4 @@ Reactive programming has an ace up its sleeve, it allows you to easily compose t
 
 In comparison Traditional frameworks only allowed you to respond to a change to a property and trigger an action. Reactive programming not only allows you to do this but also allows you to chain these actions together which in turn can then be observed themselves.
 
-This is where things can get a bit confusing so lets start with a concrete example.
+This is where things can get a bit confusing so lets start with a concrete example. We're going to write the first steps for making a peanut jelly sandwich.
