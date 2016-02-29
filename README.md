@@ -18,10 +18,10 @@ A __Subscriber__ is an interested party to that Observable, for the examples abo
 
 So that really is the basics of Reactive Programming and hopefully you can see that it isn't all that complicated. In fact if you've been programming for a while already, you may have been using traditional frameworks who already allow you to observe things. So what's different?
 
-## The Pipeline
+## Pipelines and Streams
 
 Reactive programming has an ace up its sleeve, it allows you to easily compose these observables into pipelines.
 
-Again thats super-technical so lets break it down again.
+In comparison Traditional frameworks only allowed you to respond to a change to a property and trigger an action. Reactive programming not only allows you to do this but also allows you to chain these actions together which in turn can then be observed themselves.
 
-I mentioned before that some traditional frameworks already have a way to observe things. However what they give you is the equivalent of a muppet calculator when what you need is a super computer. 
+This is where things can get a bit confusing so lets start with a concrete example.
