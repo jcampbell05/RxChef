@@ -112,7 +112,7 @@ observe(orders.count, callback: {
   - Place the tray in the oven.
   oven.place(tray)
 
-  observe(chips.are_golden, callback: {
+  observe(chips.are_golden, callback: { order in
 
     - After 20 minutes take the tray out of the oven.
     oven.remove(tray)
@@ -130,4 +130,42 @@ Again still pretty easy, we wrapped up the last steps in a callback which will b
 
 To illustrate this problem a bit more, lets add another layer of complexity. Customers are complaining again, this time the Robo Chef is sending out plates of chips.......without the chips. This time it is discovered that it isn't monitoring the stock levels and keeps accepting orders even though there are no more ingredients to cook with.
 
-When this happens the Robo Chef needs to inform the waiter who brought him the order that it cannot be full-filled.
+When this happens the Robo Chef needs to inform the waiter who brought him the order that it cannot be full-filled. How hard can that be?
+
+```
+- When we have a new order
+observe(orders.count, callback: {
+
+  - Heat up the oven to 220°
+  oven.setTemperature(220)
+
+  - Check we have chips
+  if store.has_chips {
+
+    - If we do, place 200 grams of chips onto a tray.
+    chips = new Chips(grams: 220)
+    tray.place(chips)
+
+    - Place the tray in the oven.
+    oven.place(tray)
+
+    observe(chips.are_golden, callback: {
+
+      - After 20 minutes take the tray out of the oven.
+      oven.remove(tray)
+
+      - Wait 5 minutes for the chips to cool down.
+      wait(minutes: 5)
+
+      - Serve them up.
+      serve(chips.serve)
+    })
+  }
+  else
+  {
+    - If we don't - inform the waiter
+    order.waiter.inform("I don't have any chips for that order")
+  }
+
+})
+```
