@@ -1,6 +1,8 @@
 # RxChef
 
-In this tutorial we will be learning the concepts of ReactiveX and Reactive Programming whilst running the kitchen for a hugely successful vintage 1950s diner. By the end you'll be a fully fledged RxChef.
+In this tutorial we will be learning the concepts of ReactiveX and Reactive Programming whilst running the kitchen for a hugely successful chain vintage 1950s diners. Your job is to engineer the firmware for the Robo Chefs ordered for these restaurants from technology conglomerate RxChef. By the end you'll be a fully certified RxChef Mechanic, ready to start a lucrative career in Reactive Culinary.
+
+More seriously though, this tutorial will lay down the foundation to help you enter the world of Reactive Programming. So without further ado.
 
 ## What is Reactive Programming ?
 
@@ -24,7 +26,7 @@ Reactive programming has an ace up its sleeve, it allows you to easily compose t
 
 In comparison Traditional frameworks only allowed you to respond to a change to a property and trigger an action. Reactive programming not only allows you to do this but also allows you to chain these actions together which in turn can then be observed themselves.
 
-This is where things can get a bit confusing so lets start with a concrete example. We're going to write the first steps for fulfilling an order for a plate of chips. To make things easier lets write an outline of the steps needed to make one:
+This is where things can get a bit confusing so lets start with a concrete example. We're going to write the first steps for preparing a plate of chips. To make things easier lets write an outline of the steps needed to make one:
 
 ```
 - Heat up the oven to 220°
@@ -35,7 +37,7 @@ This is where things can get a bit confusing so lets start with a concrete examp
 - Serve them up.
 ```
 
-On the face of it, converting these instructions to traditional step-by-step imperative code should be pretty simple:
+On the face of it, converting these instructions to traditional step-by-step imperative code  should be pretty simple:
 
 ```
 - Heat up the oven to 220°
@@ -58,3 +60,5 @@ wait(minutes: 5)
 - Serve them up.
 serve(chips)
 ```
+
+Whilst simple and easy to understand our RoboChef will only prepare a plate of chips before remaining idle. We want our RoboChef to prepare it each time someone places an order. So lets have a look at how we would do this.
