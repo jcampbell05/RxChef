@@ -1,6 +1,6 @@
-# RxChef
+# RxChef™
 
-In this tutorial we will be learning the concepts of ReactiveX and Reactive Programming, whilst acting as chief mechanic for all of the Robo Chefs for a chain of restaurants. Your job is to engineer the firmware for the Robo Chefs ordered for these restaurants from technology conglomerate RxChef. By the end you'll be a fully certified RxChef Mechanic, ready to start a lucrative career in Reactive Culinary.
+In this tutorial we will be learning the concepts of ReactiveX and Reactive Programming, whilst acting as chief mechanic for the RxChef™ Robo Chefs for a chain of restaurants. Our task is to engineer the firmware for these Chefs. By the end you'll be a fully certified RxChef™ Mechanic, ready to start a lucrative career in Reactive Culinary.
 
 More seriously though, this tutorial will lay down the foundation to help you enter the world of Reactive Programming. So without further ado.
 
