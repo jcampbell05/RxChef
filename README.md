@@ -34,3 +34,27 @@ This is where things can get a bit confusing so lets start with a concrete examp
 - Wait 5 minutes for the chips to cool down.
 - Serve them up.
 ```
+
+On the face of it, converting these instructions to traditional step-by-step imperative code should be pretty simple:
+
+```
+- Heat up the oven to 220°
+oven.setTemperature(220)
+
+- Place 200 grams of chips onto a tray.
+chips = new Chips(grams: 220)
+tray.place(chips)
+
+- Place the tray in the oven.
+oven.place(tray)
+
+- After 20 minutes take the tray out of the oven.
+wait(minutes: 20)
+oven.remove(tray)
+
+- Wait 5 minutes for the chips to cool down.
+wait(minutes: 5)
+
+- Serve them up.
+serve(chips)
+```
