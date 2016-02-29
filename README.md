@@ -16,7 +16,7 @@ An __Observable__ is something that can be reacted to (Hence why we call it reac
 - Getting a new order.
 - How many buns are there left for the burgers?
 
-A __Subscriber__ is an interested party to that Observable, for the examples above as a RxChef we would be the interested party; So you could describe us as being the subscriber. You could also describe a customer as being a __Subscriber__ since they are interested in knowing when their meal is ready.
+A __Subscriber__ is an interested party to that Observable, for the examples above our Robo Chef we would be the interested party. You could also describe the customer as being a __Subscriber__ since they are interested in knowing when their meal is ready.
 
 So that really is the basics of Reactive Programming and hopefully you can see that it isn't all that complicated. In fact if you've been programming for a while already, you may have been using traditional frameworks who already allow you to observe things. So what's different?
 
@@ -112,7 +112,7 @@ observe(orders.count, callback: {
   - Place the tray in the oven.
   oven.place(tray)
 
-  observe(chips.are_brown, callback: {
+  observe(chips.are_golden, callback: {
 
     - After 20 minutes take the tray out of the oven.
     oven.remove(tray)
@@ -125,3 +125,9 @@ observe(orders.count, callback: {
   })
 })
 ```
+
+Again still pretty easy, we wrapped up the last steps in a callback which will be ran whenever the chips become golden and crispy. But we are starting to see a problem emerge here.
+
+To illustrate this problem a bit more, lets add another layer of complexity. Customers are complaining again, this time the Robo Chef is sending out plates of chips.......without the chips. This time it is discovered that it isn't monitoring the stock levels and keeps accepting orders even though there are no more ingredients to cook with.
+
+When this happens the Robo Chef needs to inform the waiter who brought him the order that it cannot be full-filled.
