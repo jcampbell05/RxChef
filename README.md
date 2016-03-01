@@ -329,6 +329,8 @@ orders.forEach {
 }
 ```
 
-So we can now take a number of orders and process them, however we have a problem, this Array is just a Data Type. Data for a Data Type is processed instantly and there is no way to know if these values change without __Observables__.
+So we can now take a number of orders and process them, however we have a problem, this Array is just a Data Type. Data from a Data Type is processed instantly and there is no way to know if these values change without __Observables__.
 
-What we need is some sort of Time Type; Enter __Streams__.
+We want to be able to process new orders when they come in, What we need is some sort of Time Type; Enter __Streams__.
+
+Arrays and __Streams__ are very similar in nature, they are both Collections and both have operations you can perform upon them to produce a new collection. So why should we use a __Stream__ for the above problem ?
