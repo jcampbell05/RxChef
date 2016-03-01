@@ -301,6 +301,34 @@ new_orders.subscribeNext({
 })
 ```
 
-But along with the "spagetti flow" we're now staring to get a pyramid of doom. We need to be smarter than this, we need to start thinking of ways of pushing things back to the left again.
+But along with the "spagetti flow" we're now staring to get a "pyramid of doom". We need to be smarter than this, we need to start thinking of ways of pushing things back to the left again.
 
 Luckily ReactiveX gives an arsenal of such ways but first I need to introduce you to the concept of __Streams__.
+
+__Streams__ in ReactiveX are what connect __Observables__ and __Subscribers__ together. They represent events over time and ReactiveX allows us to operate on these __Streams__ to do some interesting things.
+
+To make this easier to grasp lets think of a situation, lets imagine two people sit down and each order a plate of chips. How would we represent that collection of orders? Well via a collection of course! Namely an Array.
+
+```
+orders = [
+  ChipsOrder,
+  ChipsOrder
+]
+```
+
+So here we have an array which contains two orders for each of those people. If we wanted to make each order we would loop through them like so:
+
+```
+orders = [
+  ChipsOrder,
+  ChipsOrder
+]
+
+orders.forEach {
+  order.make()
+}
+```
+
+So we can now take a number of orders and process them, however we have a problem, this Array is just a Data Type. Data for a Data Type is processed instantly and there is no way to know if these values change without __Observables__.
+
+What we need is some sort of Time Type; Enter __Streams__.
