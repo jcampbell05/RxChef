@@ -393,7 +393,7 @@ In the Flow Dimension like the Time Dimension, a __Stream__ is a collection of e
 ---Order1---Order2--->
 ```
 
-This RxMarbles Timeline represents an event for one order being placed followed by another event for the second order being placed. This timeline is known as a __Stream__.
+This RxMarble Timeline represents an event for one order being placed followed by another event for the second order being placed. This timeline is known as a __Stream__.
 
 An __Observable__ emits this __Stream__ which a __Subscriber__ listens to. So how do we handle these events?
 
