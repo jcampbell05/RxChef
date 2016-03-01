@@ -378,12 +378,12 @@ So how do we use reactive programming and __Streams__ to describe what our Robo 
 
 Well first we need to explore what a __Stream__ actually is.
 
-In the Data Dimension like the Space Dimension we live in, an Array is a collection of things. For example we could have an array which contains our customers.
+In the Data Dimension like the Space Dimension we live in, an Array is a collection of things. Like our menu of items:
 
 ```
-customers = [
-Customer,
-Customer
+menu_items = [
+Burger,
+Chips
 ]
 ```
 
