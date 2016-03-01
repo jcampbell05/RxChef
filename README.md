@@ -334,3 +334,40 @@ So we can now take a number of orders and process them, however we have a proble
 We want to be able to process new orders when they come in, What we need is some sort of Time Type; Enter __Streams__.
 
 Arrays and __Streams__ are very similar in nature, they are both Collections and both have operations you can perform upon them to produce a new collection. So why should we use a __Stream__ for the above problem ?
+
+In real-life we have two types of dimensions, Time and Space. Well in the digital world we have the same thing, Flow and Data.
+
+- The flow dimension is how our application flows (i.e what should it do when and in what order.). This is similar to our time dimension.
+- The data dimension is what is in our application (i.e Orders, Plates Of Chips). This is similar to our space dimension.
+
+In the past we have used Arrays and Functions to model both of these dimensions but that complicates things. When using Arrays in the Data Dimension its pretty simple, for example arrays are great for a fixed set of data like a list of items on a menu especially as we are interested in the entire array.
+
+```
+menu_items = [
+Burger,
+Chips
+]
+```
+
+But when using it for the Flow Dimension it gets complicated:
+
+```
+orders = [
+  ChipsOrder,
+  ChipsOrder
+]
+
+orders.forEach {
+  order.make()
+}
+```
+
+Like mentioned above we need some sort of __Observable__ to let us know when the array changes since we are only interested in new items. You could of course just create some kind of function for the Robo Chef which is called when a new order is placed:
+
+```
+chef.make_order(ChipsOrder)
+```
+
+But here is the real crux of the situation with this we are micro-managing our Robo Chef. We are telling it what to do in the moment rather than it's purpose in life.
+
+Traditional ways of writing code is the equivalent of writing "Take this order and make it", we are bossing our chef around like a soldier. When we are writing reactivley we are laying down the purpose and the rules for our Chef, "Whenever you get an order I want you to make it". The second one expresses the vision of what needs to be achieved and allows our Chef to be it's own boss.
