@@ -422,4 +422,6 @@ new_order.subscribeNext {
 
 You may have noticed that in this example its called `subscribeNext` rather than `forEach`, why this is will be explained later.
 
+ED: Simplify this explanation.
+
 ## Operators
