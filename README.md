@@ -329,7 +329,7 @@ orders.forEach {
 }
 ```
 
-So we can now take a number of orders and process them, however we have a problem, this Array is just a Data Type. Data from a Data Type is processed instantly and there is no way to know if these values change without __Observables__.
+So we can now take a number of orders and process them, however we have a problem, this Array is just a Data Type. Data from a Data Type is processed instantly and there is no way to know if the array changes without an __Observable__.
 
 We want to be able to process new orders when they come in, What we need is some sort of Time Type; Enter __Streams__.
 
@@ -420,8 +420,6 @@ new_order.subscribeNext {
 }
 ```
 
-You may have noticed that in this example its called `subscribeNext` rather than `forEach`, why this is will be explained later.
-
-ED: Simplify this explanation.
+You may have noticed that in this example its called `subscribeNext` rather than `forEach`, why this is will be explained later. __Streams__ allow us to process a sequence of events *if* and *when* they happen, which make async programming especially easy to deal with.
 
 ## Operators
