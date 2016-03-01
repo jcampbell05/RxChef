@@ -423,3 +423,7 @@ new_order.subscribeNext {
 You may have noticed that in this example its called `subscribeNext` rather than `forEach`, why this is will be explained later. __Streams__ allow us to process a sequence of events *if* and *when* they happen, which make async programming especially easy to deal with.
 
 ## Operators
+
+Like an Array, __Streams__ also have operators that can be used upon them. Almost any you use for an array is also avaliable for a __Stream__. On top of those we also gain access to special time based operators for our __Streams__.
+
+ 
