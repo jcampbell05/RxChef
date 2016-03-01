@@ -370,4 +370,54 @@ chef.make_order(ChipsOrder)
 
 But here is the real crux of the situation with this we are micro-managing our Robo Chef. We are telling it what to do in the moment rather than it's purpose in life.
 
-Traditional ways of writing code is the equivalent of writing "Take this order and make it", we are bossing our chef around like a soldier. When we are writing reactivley we are laying down the purpose and the rules for our Chef, "Whenever you get an order I want you to make it". The second one expresses the vision of what needs to be achieved and allows our Chef to be it's own boss.
+Traditional ways of writing code is the equivalent of writing "Take this order and make it", we are bossing our chef around like a soldier. When we are writing reactivley we are laying down the purpose and the rules for our Chef, "Whenever you get an order I want you to make it".
+
+This expresses the vision of what needs to be achieved and allows our Chef to think on it's own, we can see instantly at any point in time what our chef will be doing, it becomes a character rather than a object. Character based programming.
+
+So how do we use reactive programming and __Streams__ to describe what our Robo Chef should be doing, rather than telling it what to do.
+
+Well first we need to explore what a __Stream__ actually is.
+
+In the Data Dimension like the Space Dimension we live in, an Array is a collection of things. For example we could have an array which contains our customers.
+
+```
+customers = [
+Customer,
+Customer
+]
+```
+
+In the Flow Dimension like the Time Dimension, a __Stream__ is a collection of events. For example when two people order, it will look something like this:
+
+```
+---Order1---Order2--->
+```
+
+This RxMarbles Timeline represents an event for one order being placed followed by another event for the second order being placed. This timeline is known as a __Stream__.
+
+An __Observable__ emits this __Stream__ which a __Subscriber__ listens to. So how do we handle these events?
+
+Well if you've used Arrays, you already have:
+
+```
+orders = [
+  ChipsOrder,
+  ChipsOrder
+]
+
+orders.forEach {
+  order.make()
+}
+```
+
+Above we iterate each item of the array, we can do the same thing for Streams:
+
+```
+- new_order: ---Order1---Order2--->
+
+new_order.subscribeNext {
+  order.make()
+}
+```
+
+You may have noticed that in this example its called `subscribeNext` rather than `forEach`. Ignore this for now as I will explain this later on, for now just assume they are the same thing.
