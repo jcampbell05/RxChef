@@ -257,4 +257,50 @@ new_orders.subscribeNext({
 })
 ```
 
-Like before the steps in the callback for `subscribeNext` is called when the chips turn golden. So far it doesn't look like there is much different to ReactiveX but now things start to get interesting.
+Like before the steps in the callback for `subscribeNext` is called when the chips turn golden. So far it doesn't look like there is much difference with ReactiveX and that's true but now things start to get interesting.
+
+So now come those extra requirements, management are un-happy with the Robo Chef's lackluster performance. As the restaurant's popularity increased the Robo Chef has struggled to keep up. Right now the Robo Chef is only capable of fulfilling one order at a time, this is due to the fact that whilst the Robo Chef is waiting for the Chips to cool down our application causes the Robo Chef to be blocked for a whole 5 minutes.
+
+This won't do, how can we fix this? You're probably thinking something along the lines of this:
+
+```
+- When we have a new order
+new_orders.subscribeNext({
+
+    - Check we have chips
+    if store.has_chips {
+
+      - If we do, Heat up the oven to 220°
+      oven.setTemperature(220)
+
+      - Place 200 grams of chips onto a tray.
+      chips = new Chips(grams: 220)
+      tray.place(chips)
+
+      - Place the tray in the oven.
+      oven.place(tray)
+
+      - When the chips turn golden
+      chips.are_golden.subscribeNext({
+
+        - Take the tray out of the oven.
+        oven.remove(tray)
+
+        - Wait until they are cool
+        chips.are_cool.subscribeNext({
+
+          - Serve them up.
+          serve(chips.serve)
+        })
+    }
+    else
+    {
+      - If we don't - inform the waiter
+      order.waiter.inform("I don't have any chips for that order")
+    }
+})
+```
+
+But along with the "spagetti flow" we're now staring to get a pyramid of doom. We need to be smarter than this, we need to start thinking of ways of pushing things back to the left again.
+
+Luckily ReactiveX gives an arsenal of such ways but first I need to introduce you to the concept of __Streams__.
