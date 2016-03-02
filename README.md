@@ -424,6 +424,9 @@ You may have noticed that in this example its called `subscribeNext` rather than
 
 ## Operators
 
-Like an Array, __Streams__ also have operators that can be used upon them. Almost any you use for an array is also avaliable for a __Stream__. On top of those we also gain access to special time based operators for our __Streams__.
+Like an Array, __Streams__ also have operators that can be used upon them. Almost any you use for an array is also available for a __Stream__.
 
- 
+
+## Time Travel
+
+On top of those we also gain access to special time based operators for our __Streams__.
