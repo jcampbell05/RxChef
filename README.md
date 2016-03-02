@@ -110,7 +110,7 @@ observe(orders.count, callback: {
 
   observe(chips.are_golden, callback: { order in
 
-    - After 20 minutes take the tray out of the oven.
+    - Take the tray out of the oven.
     oven.remove(tray)
 
     - Wait 5 minutes for the chips to cool down.
