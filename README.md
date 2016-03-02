@@ -426,6 +426,11 @@ You may have noticed that in this example its called `subscribeNext` rather than
 
 Like an Array, __Streams__ also have operators that can be used upon them. Almost any you use for an array is also available for a __Stream__.
 
+Lets begin with the two most common operators you will use, starting with `map`.
+
+### Map
+
+### FlatMap
 
 ## Time Travel
 
