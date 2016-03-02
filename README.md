@@ -430,6 +430,23 @@ Lets begin with the two most common operators you will use, starting with `map`.
 
 ### Map
 
+`map` allows us to transform or "map" each element into another element, like so:
+
+```
+frogs = [
+Frog,
+Frog
+]
+
+princes = frogs.map {
+  return frog.to_prince()
+}
+```
+
+Above we have transformed an Array of frogs into an Array of princes. Our block of code is called for each frog and we return a prince to be placed in the same position in the new Array.
+
+
+
 ### FlatMap
 
 ## Time Travel
