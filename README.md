@@ -40,7 +40,7 @@ On the face of it, converting these instructions to traditional step-by-step imp
 oven.setTemperature(220)
 
 - Place 200 grams of chips onto a tray.
-chips = Chips(grams: 220)
+chips = Chips(grams: 200)
 tray.place(chips)
 
 - Place the tray in the oven.
@@ -69,7 +69,7 @@ observe(orders.count, callback: {
   oven.setTemperature(220)
 
   - Place 200 grams of chips onto a tray.
-  chips = new Chips(grams: 220)
+  chips = new Chips(grams: 200)
   tray.place(chips)
 
   - Place the tray in the oven.
@@ -102,7 +102,7 @@ observe(orders.count, callback: {
   oven.setTemperature(220)
 
   - Place 200 grams of chips onto a tray.
-  chips = new Chips(grams: 220)
+  chips = new Chips(grams: 200)
   tray.place(chips)
 
   - Place the tray in the oven.
@@ -139,7 +139,7 @@ observe(orders.count, callback: {
     oven.setTemperature(220)
 
     - Place 200 grams of chips onto a tray.
-    chips = new Chips(grams: 220)
+    chips = new Chips(grams: 200)
     tray.place(chips)
 
     - Place the tray in the oven.
@@ -188,7 +188,7 @@ new_orders.subscribeNext({
       oven.setTemperature(220)
 
       - Place 200 grams of chips onto a tray.
-      chips = new Chips(grams: 220)
+      chips = new Chips(grams: 200)
       tray.place(chips)
 
       - Place the tray in the oven.
@@ -230,7 +230,7 @@ new_orders.subscribeNext({
       oven.setTemperature(220)
 
       - Place 200 grams of chips onto a tray.
-      chips = new Chips(grams: 220)
+      chips = new Chips(grams: 200)
       tray.place(chips)
 
       - Place the tray in the oven.
@@ -274,7 +274,7 @@ new_orders.subscribeNext({
       oven.setTemperature(220)
 
       - Place 200 grams of chips onto a tray.
-      chips = new Chips(grams: 220)
+      chips = new Chips(grams: 200)
       tray.place(chips)
 
       - Place the tray in the oven.
